@@ -2,6 +2,7 @@ import './App.css';
 import axios from 'axios';
 import {useState} from 'react';
 import NewsList from './components/NewsList';
+import Categories from './components/Categories';
 
 function App() {
   // const [data,setData] = useState();
@@ -25,8 +26,12 @@ function App() {
   //   </div>
   // );
 
-  return <NewsList />;
-  
+  return (
+    <>
+      <Categories/>
+      <NewsList />
+    </>
+  )
 }
 
 export default App;
