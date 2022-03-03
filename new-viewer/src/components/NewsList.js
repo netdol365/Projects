@@ -16,7 +16,7 @@ const NewsListBlock = styled.div`
     }
 `;
 
-export default function NewsList(){
+export default function NewsList({category}){
     const [articles,setArticles] = useState();
     const [loading,setLoading] = useState(false);
 
@@ -25,8 +25,10 @@ export default function NewsList(){
             setLoading(true);
 
         try{
+            const query = category === 'all' ? '' : `&category=${category}`;        // 전체보기일 경우를 제외하고 쿼리를 추가
             const response = await axios.get(
-                'https://newsapi.org/v2/top-headlines?country=kr&apiKey=1a76bbed90e44526bc279d6fc0048d4e',);
+                `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=1a76bbed90e44526bc279d6fc0048d4e`,);
+                // 해당하는 카테고리를 쿼리에 추가하여 주소창에 추가
                 setArticles(response.data.articles);
             }catch(e){
                 console.log(e.message);
@@ -34,7 +36,7 @@ export default function NewsList(){
             setLoading(false);
         };
         fetchData();
-    },[]);
+    },[category]);
 
     if(loading)                     // 로딩되는 중간에 사용자에게 가시화
     {
