@@ -48,5 +48,6 @@ export default function Newsitem({article}){
                 <p>{description}</p>
             </div>
         </NewsItemBlock>
+        
     );
 };

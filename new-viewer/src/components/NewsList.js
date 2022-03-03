@@ -30,5 +30,6 @@ export default function NewsList(){
             <Newsitem article={sampleArticle}></Newsitem>
             <Newsitem article={sampleArticle}></Newsitem>
         </NewsListBlock>
+        
     );
 };
