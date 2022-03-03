@@ -36,7 +36,7 @@ export default function NewsList({category}){
             setLoading(false);
         };
         fetchData();
-    },[category]);
+    },[category]);                  // category를 확인하며 변경될때 마다 반영
 
     if(loading)                     // 로딩되는 중간에 사용자에게 가시화
     {
